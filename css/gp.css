@@ -22,3 +22,17 @@ a {
 	width:300px;
 	border: 0;
 }
+table,th,td {
+	width:45%;
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+th,td {
+	padding: 2px;
+}
+table tr:nth-child(even) {
+	background-color: #fff;
+}
+table tr:nth-child(odd) {
+	background-color: #eee;
+}
