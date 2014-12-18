@@ -9,13 +9,13 @@ h1 {
 	text-align:center;
 }
 h2 {
-	font-style: italic;
+	/*font-style: italic;*/
 }
 p#intro {
 	font-family:courier;
 }
 a {
-	color: #5284B9;
+	/*color: #5284B9;*/
 	text-decoration: none;
 }
 #elephant {
@@ -35,4 +35,17 @@ table tr:nth-child(even) {
 }
 table tr:nth-child(odd) {
 	background-color: #eee;
+}
+ul.social-network {
+	display: block;
+	/*list-style: none;*/
+}
+.social-network li {
+	display: inline;
+}
+.social-network li a:hover {
+	color: orange;
+}
+.social-network a {
+	color: black;
 }

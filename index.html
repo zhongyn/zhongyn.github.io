@@ -2,67 +2,85 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="keywords" content="hadoop, tutorial">
+	<meta name="description" content="Hadoop tutorial 1">
+	<meta name="author" content="Yaonan Zhong">
 	<title>Hadoop Tutorial 1</title>
 	<link rel="stylesheet" type="text/css" href="css/gp.css">
+	<!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"> -->
+	<link rel="stylesheet" href="font-awesome-4.2.0/css/font-awesome.min.css">
 </head>
 
 <body>
-<h1>Hadoop Tutorial 1</h1>
-<img src="images/hadoop-elephant.png" alt="Hadoop elephant" id="elephant">
-<p title="Introduction" id="intro">After an exhausting search for Hadoop tutorials, I decided to design my own one. There are several reasons here. First, most online courses are not free and cost too much for a poor student like me. Meanwhile, there are few free ones and they are a little bit outdated. But the good news is that Hadoop is an open source project, so most resource can be found on the internet. The only tough thing is that how to find the right one that can help your learning in a natural, efficient and effective way. That is my goal at the beginning and also what this tutorial is for. I will share my learning process and materials here. Importantly, as a new baby to Hadoop, I can share the solutions to the problems that are common for other beginners. We all want to save time, otherwise you may not need to use Hadoop. Yeah, Hadoop saves your life.</p>
-<hr>
-<p>In this article, I will deal with three topics:</p>
-<ol>
-<li>What problems does Hadoop solve and how it solves them</li>
-<li>Hadoop distributed file system basics and architecture</li>
-<li>Setting up pseudo-distributed file system in your computer</li>
-</ol>
-<hr>
-<h2>1. Big data and Hadoop</h2>
-<p>Alright, I use big data to attract your eyeballs even though it is not our topic. But that is the background of Hadoop. We will begin with the Yahoo! Hadoop tutorial. Module 1 talk about the scope of problems applicable to Hadoop and how Hadoop addresses these problems. It gives us a big picture. And I like big pictures since they make our learning more efficient. </p>
-<table>
-	<tr>
-		<td>Yahoo! Hadoop Tutorial Module 1:</td>
-		<td><a href="https://developer.yahoo.com/hadoop/tutorial/module1.html">Link</a></td>
-		<td><a href="https://developer.yahoo.com/hadoop/tutorial/module1.html">PDF</a></td>
-	</tr>
-</table>
+	<h1>Hadoop Tutorial 1</h1>
+	<div>
+		<img src="images/hadoop-elephant.png" alt="Hadoop elephant" id="elephant">
+	</div>
+	<div>
+		<p title="Introduction" id="intro">After an exhausting search for Hadoop tutorials, I decided to design my own one. There are several reasons here. First, most online courses are not free and cost too much for a poor student like me. Meanwhile, there are few free ones and they are a little bit outdated. But the good news is that Hadoop is an open source project, so most resource can be found on the internet. The only tough thing is that how to find the right one that can help your learning in a natural, efficient and effective way. That is my goal at the beginning and also what this tutorial is for. I will share my learning process and materials here. Importantly, as a new baby to Hadoop, I can share the solutions to the problems that are common for other beginners. We all want to save time, otherwise you may not need to use Hadoop. Yeah, Hadoop saves your life.</p>
+	</div>
+	<div>
+		<hr>
+		<p>In this article, I will deal with three topics:</p>
+		<ol>
+			<li>What problems does Hadoop solve and how it solves them</li>
+			<li>Hadoop distributed file system basics and architecture</li>
+			<li>Setting up pseudo-distributed file system in your computer</li>
+		</ol>
+		<hr>
+	</div>
+	<div>
+		<h2>1. Big data and Hadoop</h2>
+		<p>Alright, I use big data to attract your eyeballs even though it is not our topic. But that is the background of Hadoop. We will begin with the Yahoo! Hadoop tutorial. Module 1 talk about the scope of problems applicable to Hadoop and how Hadoop addresses these problems. It gives us a big picture. And I like big pictures since they make our learning more efficient. </p>
+		<table>
+			<tr>
+				<td>Yahoo! Hadoop Tutorial Module 1:</td>
+				<td><a href="https://developer.yahoo.com/hadoop/tutorial/module1.html">Link</a></td>
+				<td><a href="https://developer.yahoo.com/hadoop/tutorial/module1.html">PDF</a></td>
+			</tr>
+		</table>
+	</div>
+	<div>
+		<h2>2. Hadoop distributed file system architecture</h2>
+		<p>After reading Module 1, you already know some concepts of Hadoop distributed file system. This part will give you a complete view and better understanding of how it exactly works. First, please read the Distributed File System Basics in Module 2. I mean, only the basics part. Then read the HDFS Architecture in Hadoop project site. These two are very close and extremely useful.</p>
 
-<h2>2. Hadoop distributed file system architecture</h2>
-<p>After reading Module 1, you already know some concepts of Hadoop distributed file system. This part will give you a complete view and better understanding of how it exactly works. First, please read the Distributed File System Basics in Module 2. I mean, only the basics part. Then read the HDFS Architecture in Hadoop project site. These two are very close and extremely useful.</p>
+		<table>
+			<tr>
+				<td>Yahoo! Hadoop Tutorial Module 2:</td>
+				<td><a href="https://developer.yahoo.com/hadoop/tutorial/module2.html">Link</a></td>
+				<td><a href="https://developer.yahoo.com/hadoop/tutorial/module1.html">PDF</a></td>
+			</tr>
+			<tr>
+				<td>HDFS Architecture:</td>
+				<td><a href="http://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html">Link</a></td>
+				<td>PDF</td>
+			</tr>
+		</table>
+	</div>
+	<div>
+		<h2>3. Set up Hadoop on your computer and get muddy</h2>
+		<p>Now we can do something fun on our PCs by setting up Hadoop. For Linux and Mac users, the Hadoop project guide is very helpful. Follow the instructions step by step and you will make it. At this point, we just want to try a single node cluster. Windows user can use the Yahoo! guide. For mac users, I know you may use Brew to install Hadoop. However, I would recommend manual downloading and installing. Here is my experience on installing Hadoop 2.6 on my macbook with OS X Yosemite. </p>
 
-<table>
-	<tr>
-		<td>Yahoo! Hadoop Tutorial Module 2:</td>
-		<td><a href="https://developer.yahoo.com/hadoop/tutorial/module2.html">Link</a></td>
-		<td><a href="https://developer.yahoo.com/hadoop/tutorial/module1.html">PDF</a></td>
-	</tr>
-	<tr>
-		<td>HDFS Architecture:</td>
-		<td><a href="http://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html">Link</a></td>
-		<td>PDF</td>
-	</tr>
-</table>
-
-<h2>3. Set up Hadoop on your computer and get muddy</h2>
-<p>Now we can do something fun on our PCs by setting up Hadoop. For Linux and Mac users, the Hadoop project guide is very helpful. Follow the instructions step by step and you will make it. At this point, we just want to try a single node cluster. Windows user can use the Yahoo! guide. For mac users, I know you may use Brew to install Hadoop. However, I would recommend manual downloading and installing. Here is my experience on installing Hadoop 2.6 on my macbook with OS X Yosemite. </p>
-
-<table>
-	<tr>
-		<td>My Mac OS X:</td>
-		<td>Link</td>
-	</tr>
-	<tr>
-		<td>Hadoop project guide:</td>
-		<td><a href="http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/SingleCluster.html">Link</a></td>
-	</tr>
-	<tr>
-		<td>Windows installation:</td>
-		<td><a href="https://developer.yahoo.com/hadoop/tutorial/module3.html">Link</a></td>
-	</tr>
-</table>
-
-<p>Congratulations! You have finished the tutorial 1. I will post the following tutorials soon!</p>	
+		<table>
+			<tr>
+				<td>My Mac OS X:</td>
+				<td>Link</td>
+			</tr>
+			<tr>
+				<td>Hadoop project guide:</td>
+				<td><a href="http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/SingleCluster.html">Link</a></td>
+			</tr>
+			<tr>
+				<td>Windows installation:</td>
+				<td><a href="https://developer.yahoo.com/hadoop/tutorial/module3.html">Link</a></td>
+			</tr>
+		</table>
+	</div>
+	<p>Congratulations! You have finished the tutorial 1. I will post the following tutorials soon!</p>	
+	<ul class="social-network">
+		<li><a href="htttps://www.linkedin.com/in/yaonanzhong/"><i class="fa fa-linkedin fa-4x"></i></a></li>
+		<li><a href="https://www.github.com/zhongyn"><i class="fa fa-github-alt fa-4x"></i></a></li>
+	</ul>
 </body>
 
 </html>
