@@ -1,10 +1,14 @@
 body {
 	background-image:url("../images/background.png");
+	/*background-repeat: no-repeat;*/
 	background-color:#DCDCDC;
+	/*font-family: "Times New Roman";*/
+	font-family:Georgia, serif;
+	font-size: 100%;
 }
 h1 {
 	color:#7B9CFF;
-	font-family:verdana;
+	font-family:Georgia;
 	font-size:200%;
 	text-align:center;
 }
@@ -12,7 +16,7 @@ h2 {
 	/*font-style: italic;*/
 }
 p#intro {
-	font-family:courier;
+	/*font-family:courier;*/
 }
 a {
 	/*color: #5284B9;*/
@@ -21,6 +25,7 @@ a {
 #elephant {
 	width:300px;
 	border: 0;
+	/*position: fixed;*/
 }
 table,th,td {
 	width:45%;
@@ -36,16 +41,22 @@ table tr:nth-child(even) {
 table tr:nth-child(odd) {
 	background-color: #eee;
 }
-ul.social-network {
-	display: block;
-	/*list-style: none;*/
+.social-network {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	/*text-align: center;*/
 }
 .social-network li {
 	display: inline;
+	/*padding: 20px;*/
+	/*border: 1px solid;*/
+}
+.social-network li a {
+	padding: 10px;
+	/*border: 1px solid;*/
+	color: black;
 }
 .social-network li a:hover {
 	color: orange;
-}
-.social-network a {
-	color: black;
 }
