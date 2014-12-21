@@ -35,9 +35,10 @@ nav a {
 }
 
 article {
-	padding: 0.5% 1%;
+	padding: 1% 5%;
 	background: url("../images/background.png");
 }
+
 /*@media screen and (min-width: 1024px) {
 	header {
 		position: fixed;
@@ -83,7 +84,6 @@ article div:first-of-type::first-letter {
 	float: left;
 	font-size: 300%;
 	font-family: georgia;
-	/*font-weight: bold;*/
 	line-height: 100%;
 	padding-right: 0.13em;
 }
