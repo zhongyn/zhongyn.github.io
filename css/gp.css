@@ -39,7 +39,7 @@ nav a {
 }
 
 article {
-	padding: 1% 5%;
+	padding: 1em 1em 3em;
 	background: url("../images/background.png");
 }
 
