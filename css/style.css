@@ -82,6 +82,13 @@ h1+h2, hr{
 	color: #908B8B;
 }
 
+h1+h2 {
+	margin-top: 0em;
+}
+
+hr {
+	margin-bottom: 1.5em;
+}
 
 p {
 	line-height: 1.5em;
