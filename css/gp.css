@@ -24,7 +24,7 @@ header img {
 
 header h1{
 	font-size: 150%;
-	padding-bottom: 0.5em;
+	padding-bottom: 0.3em;
 	text-align: center;
 }
 
@@ -34,21 +34,16 @@ header h1 a{
 
 nav a {
 	display: block;
-	margin-left: 20%;
+	margin-left: 25%;
 	color: #908B8B;
 	font-size: 1.2em;
 	font-weight: 500;
 }
 
-section {
-/*	position: absolute;
-	left: 300px;*/
+article {
 	margin-left: 300px;
 	padding: 2em 3em;
-	/*color: #5284B9;*/
 	background: url("../images/background.png");
-	/*background: rgb(233, 221, 198);*/
-	/*line-height: 1.5em;*/
 }
 
 a {
@@ -79,25 +74,22 @@ p {
 ul {
 	margin-left: 3em;
 }
-/* blog style */
-#elephant {
-	width:300px;
-	float:right;
-	border-radius: 30px;
+
+li {
+	line-height: 1.5em;
 }
+
+table {
+	margin-bottom: 2em;
+}
+
 table,th,td {
-	width:45%;
 	border: 1px solid black;
 	border-collapse: collapse;
 }
+
 th,td {
-	padding: 2px;
-}
-table tr:nth-child(even) {
-	/*background-color: #fff;*/
-}
-table tr:nth-child(odd) {
-	/*background-color: #eee;*/
+	padding: 5px 10px;
 }
 
 
