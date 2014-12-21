@@ -78,6 +78,11 @@ h2 {
 	margin: 1em 0 0.5em;
 }
 
+h1+h2, hr{
+	color: #908B8B;
+}
+
+
 p {
 	line-height: 1.5em;
 	margin-bottom: 1em;
