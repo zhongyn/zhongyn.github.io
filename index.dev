@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="hadoop, tutorial, yaonan">
+	<meta name="description" content="Hadoop tutorial 1">
+	<meta name="author" content="Yaonan Zhong">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<title>Hadoop Tutorial 1</title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<link href='http://fonts.googleapis.com/css?family=Roberto' rel='stylesheet'>
+	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+</head>
+
+<body>
+	<header>
+		<img src="/images/myself.jpg" alt="Yaonan Zhong">
+		<h1><a href="/">Yaonan Zhong</a></h1>
+		<nav>
+			<a href="/">
+				<span class="fa-stack">
+					<i class="fa fa-square-o fa-stack-2x fa-fw"></i>
+					<i class="fa fa-home fa-stack-1x fa-fw"></i>
+				</span>
+				<span class="nav-item">Home</span>
+			</a>
+
+			<a href="#">
+				<span class="fa-stack">
+					<i class="fa fa-square-o fa-stack-2x fa-fw"></i>
+					<i class="fa fa-user fa-stack-1x fa-fw"></i>
+				</span>
+				<span class="nav-item">About</span>
+			</a>
+
+			<a href="#">
+				<span class="fa-stack">
+					<i class="fa fa-square-o fa-stack-2x fa-fw"></i>
+					<i class="fa fa-futbol-o fa-stack-1x fa-fw"></i>
+				</span>
+				<span class="nav-item">Life</span>
+			</a>
+
+			<a href="https://www.linkedin.com/in/yaonanzhong" target="_blank">
+				<span class="fa-stack">
+					<i class="fa fa-square-o fa-stack-2x fa-fw"></i>
+					<i class="fa fa-linkedin fa-stack-1x fa-fw"></i>
+				</span>
+				<span class="nav-item">Linkedin</span>
+			</a>
+			<a href="https://www.github.com/zhongyn" target="_blank">
+				<span class="fa-stack">
+					<i class="fa fa-square-o fa-stack-2x fa-fw"></i>
+					<i class="fa fa-github-alt fa-stack-1x fa-fw"></i>
+				</span>
+				<span class="nav-item">Github</span>
+			</a>
+		</nav>	
+	</header>
+	<article>	
+		<!-- something to be filled -->
+	</article>
+</body>
+
+</html>
