@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="keywords" content="hadoop, tutorial, yaonan">
+  <meta name="description" content="Hadoop tutorial 1">
+  <meta name="author" content="Yaonan Zhong">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Hadoop Tutorial 1</title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link href='http://fonts.googleapis.com/css?family=Roberto' rel='stylesheet'>
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+</head>
+
+<body>
+  <header>
+    <img src="/images/myself.jpg" alt="Yaonan Zhong">
+    <h1><a href="/">Yaonan Zhong</a></h1>
+    <nav>
+      <a href="/">
+        <span class="fa-stack">
+          <i class="fa fa-square-o fa-stack-2x fa-fw"></i>
+          <i class="fa fa-home fa-stack-1x fa-fw"></i>
+        </span>
+        <span class="nav-item">Home</span>
+      </a>
+
+      <a href="#">
+        <span class="fa-stack">
+          <i class="fa fa-square-o fa-stack-2x fa-fw"></i>
+          <i class="fa fa-user fa-stack-1x fa-fw"></i>
+        </span>
+        <span class="nav-item">About</span>
+      </a>
+
+      <a href="#">
+        <span class="fa-stack">
+          <i class="fa fa-square-o fa-stack-2x fa-fw"></i>
+          <i class="fa fa-futbol-o fa-stack-1x fa-fw"></i>
+        </span>
+        <span class="nav-item">Life</span>
+      </a>
+
+      <a href="https://www.linkedin.com/in/yaonanzhong" target="_blank">
+        <span class="fa-stack">
+          <i class="fa fa-square-o fa-stack-2x fa-fw"></i>
+          <i class="fa fa-linkedin fa-stack-1x fa-fw"></i>
+        </span>
+        <span class="nav-item">Linkedin</span>
+      </a>
+      <a href="https://www.github.com/zhongyn" target="_blank">
+        <span class="fa-stack">
+          <i class="fa fa-square-o fa-stack-2x fa-fw"></i>
+          <i class="fa fa-github-alt fa-stack-1x fa-fw"></i>
+        </span>
+        <span class="nav-item">Github</span>
+      </a>
+    </nav>  
+  </header>
+  <article> 
+<h1>Setting up Hadoop 2.6 on Mac OS X Yosemite</h>
+
+By filtering many installation guides, I ended up with my own version base on the Hadoop official guide. The official one is the best one with manual download. If you prefer homebrew, this one would be your best choice. Here I extend the official guide by more details in case you need it.
+
+Required Software
+Java. Run the following command in a terminal:
+
+$ java -version
+
+If Java is already installed, you can see a similar result like:
+
+java version "1.8.0_25"
+Java(TM) SE Runtime Environment (build 1.8.0_25-b17)
+Java HotSpot(TM) 64-Bit Server VM (build 25.25-b02, mixed mode)
+
+If not, the terminal will prompt you for installation or you can download Java JDK here.
+http://www.oracle.com/technetwork/java/javase/downloads/index.html
+
+SSH. 
+First enable Remote Login in System Preference -> Sharing.
+Now check that you can ssh to the localhost without a passphrase:
+
+  $ ssh localhost
+If you cannot ssh to localhost without a passphrase, execute the following commands:
+
+  $ ssh-keygen -t dsa -P '' -f ~/.ssh/id_dsa
+  $ cat ~/.ssh/id_dsa.pub >> ~/.ssh/authorized_keys
+Get a Hadoop distribution
+Download it here
+
+Prepare to start the Hadoop cluster
+Unpack the downloaded Hadoop distribution. 
+
+Run the following command to figure out where is your Java home directory:
+$ /usr/libexec/java_home
+
+You can see a result like:
+/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home
+
+In the distribution,  edit the file etc/hadoop/hadoop-env.sh to define some parameters as follows:
+  # set to the root of your Java installation
+  export JAVA_HOME=<your java home directory>
+# set to the root of your Hadoop installation
+  export HADOOP_PREFIX=<your hadoop distribution directory>
+Try the following command:
+
+$ cd <your hadoop distribution directory>
+  $ bin/hadoop
+This will display the usage documentation for the hadoop script.
+
+
+
+Now you are ready to start your Hadoop cluster in one of the three supported modes:
+Standalone mode
+Pseudo-distributed mode
+fully-distributed mode
+
+we will go through pseudo-distributed mode and run a MapReduce job on YARN here. In this mode, Hadoop runs on a single node and each Hadoop daemon runs in a separate Java process.
+
+
+Configuration
+
+Use the following:
+
+etc/hadoop/core-site.xml:
+
+<configuration>
+    <property>
+        <name>fs.defaultFS</name>
+        <value>hdfs://localhost:9000</value>
+    </property>
+</configuration>
+etc/hadoop/hdfs-site.xml:
+
+<configuration>
+    <property>
+        <name>dfs.replication</name>
+        <value>1</value>
+    </property>
+</configuration>
+
+
+etc/hadoop/mapred-site.xml:
+
+<configuration>
+    <property>
+        <name>mapreduce.framework.name</name>
+        <value>yarn</value>
+    </property>
+</configuration>
+etc/hadoop/yarn-site.xml:
+
+<configuration>
+    <property>
+        <name>yarn.nodemanager.aux-services</name>
+        <value>mapreduce_shuffle</value>
+    </property>
+</configuration>
+
+execution
+$ cd <your hadoop distribution directory>
+Format the filesystem:
+  $ bin/hdfs namenode -format
+Start NameNode daemon and DataNode daemon:
+  $ sbin/start-dfs.sh
+Browse the web interface for the NameNode; by default it is available at:
+NameNode - http://localhost:50070/
+Make the HDFS directories required to execute MapReduce jobs:
+  $ bin/hdfs dfs -mkdir /user
+  $ bin/hdfs dfs -mkdir /user/<username> #make sure you add correct username here5
+5. Start ResourceManager daemon and NodeManager daemon:
+  $ sbin/start-yarn.sh
+
+Copy the input files into the distributed filesystem:
+  $ bin/hdfs dfs -put etc/hadoop input
+Run some of the examples provided:
+  $ bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.6.0.jar grep input output 'dfs[a-z.]+'
+Examine the output files:
+Copy the output files from the distributed filesystem to the local filesystem and examine them:
+
+  $ bin/hdfs dfs -get output output
+  $ cat output/*
+or
+
+View the output files on the distributed filesystem:
+
+  $ bin/hdfs dfs -cat output/*
+When you're done, stop the daemons with:
+$ sbin/stop-yarn.sh
+ $ sbin/stop-dfs.sh
+  </article>
+</body>
+
+</html>
