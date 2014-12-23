@@ -43,7 +43,7 @@ article {
 	background: url("/images/background.png");
 }
 
-p:nth-of-type(1):first-letter {
+article > p:nth-of-type(1):first-letter {
 	float: left;
 	font-size: 300%;
 	font-family: georgia;
@@ -92,9 +92,12 @@ hr {
 
 p {
 	line-height: 1.5em;
-	margin-bottom: 1em;
+	margin: 0.7em 0;
 }
 
+section {
+	padding-left: 1.5em;
+}
 ul {
 	margin-left: 3em;
 }
