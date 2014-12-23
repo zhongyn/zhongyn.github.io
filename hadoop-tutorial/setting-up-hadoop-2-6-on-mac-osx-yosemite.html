@@ -107,7 +107,7 @@ $ cat ~/.ssh/id_dsa.pub >> ~/.ssh/authorized_keys</code></pre>
 export JAVA_HOME={your java home directory}
 # set to the root of your Hadoop installation
 export HADOOP_PREFIX={your hadoop distribution directory}</code></pre>
-    <p>Try the following command:</p>
+    <p>4) Try the following command:</p>
 
     <pre><code>$ cd {your hadoop distribution directory}
 $ bin/hadoop</code></pre>
@@ -126,7 +126,7 @@ $ bin/hadoop</code></pre>
     <section>
 <p>Edit following config files in your Hadoop directory </p>
     
-    <p><strong>1) etc/hadoop/core-site.xml:</strong></p>
+    <p>1) etc/hadoop/core-site.xml:</p>
 
     <pre><code>&lt;configuration&gt;
     &lt;property&gt;
@@ -135,7 +135,7 @@ $ bin/hadoop</code></pre>
     &lt;/property&gt;
 &lt;/configuration&gt;</code></pre>
     
-    <p><strong>2) etc/hadoop/hdfs-site.xml:</strong></p>
+    <p>2) etc/hadoop/hdfs-site.xml:</p>
 
     <pre><code>&lt;configuration&gt;
     &lt;property&gt;
@@ -145,7 +145,7 @@ $ bin/hadoop</code></pre>
 &lt;/configuration&gt;</pre></code>
 
 
-    <p><strong>3) etc/hadoop/mapred-site.xml:</strong></p>
+    <p>3) etc/hadoop/mapred-site.xml:</p>
 
     <pre><code>&lt;configuration&gt;
     &lt;property&gt;
@@ -154,7 +154,7 @@ $ bin/hadoop</code></pre>
     &lt;/property&gt;
 &lt;/configuration&gt;</pre></code>
 
-    <p><strong>4) etc/hadoop/yarn-site.xml:</strong></p>
+    <p>4) etc/hadoop/yarn-site.xml:</p>
 
     <pre><code>&lt;configuration&gt;
     &lt;property&gt;
@@ -164,39 +164,43 @@ $ bin/hadoop</code></pre>
 &lt;/configuration&gt;</pre></code>
   </section>
     <h2>5. Execution</h2>
-    $ cd <your hadoop distribution directory>
-    Format the filesystem:
-    $ bin/hdfs namenode -format
-    Start NameNode daemon and DataNode daemon:
-    $ sbin/start-dfs.sh
-    Browse the web interface for the NameNode; by default it is available at:
-    NameNode - http://localhost:50070/
-    Make the HDFS directories required to execute MapReduce jobs:
-    $ bin/hdfs dfs -mkdir /user
-    $ bin/hdfs dfs -mkdir /user/<username> #make sure you add correct username here5
-    5. Start ResourceManager daemon and NodeManager daemon:
-    $ sbin/start-yarn.sh
+    <section>
+    <p><strong>1) Format and start HDFS and YARN</strong></p>
+    <pre><code>$ cd {your hadoop distribution directory}</code></pre>
+    <p>Format the filesystem:<p>
+    <pre><code>$ bin/hdfs namenode -format</code></pre>
+    <p>Start NameNode daemon and DataNode daemon:</p>
+    <pre><code>$ sbin/start-dfs.sh</code></pre>
+    <p>Now you can browse the web interface for the NameNode at - <a href="http://localhost:50070/" target="_blank">http://localhost:50070/</a></p>
+    <p>Make the HDFS directories required to execute MapReduce jobs:</p>
+    <pre><code>$ bin/hdfs dfs -mkdir /user
+$ bin/hdfs dfs -mkdir /user/{username} #make sure you add correct username here</code></pre>
+    
+    <p>Start ResourceManager daemon and NodeManager daemon:</p>
+    <pre><code>$ sbin/start-yarn.sh</code></pre>
+    <p>Browse the web interface for the ResourceManager at - <a href="http://localhost:8088/">http://localhost:8088/</a></p>
+    <p><strong>2) Test examples code that came with the hadoop version</strong></p>
+    <p>Copy the input files into the distributed filesystem:</p>
+    <pre><code>$ bin/hdfs dfs -put etc/hadoop input</code></pre>
+    <p>Run some of the examples provided:</p>
+    <pre><code>$ bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.6.0.jar grep input output 'dfs[a-z.]+'</code></pre>
+    <p>Examine the output files:</p>
+    <p>Copy the output files from the distributed filesystem to the local filesystem and examine them:<p>
 
-    Copy the input files into the distributed filesystem:
-    $ bin/hdfs dfs -put etc/hadoop input
-    Run some of the examples provided:
-    $ bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.6.0.jar grep input output 'dfs[a-z.]+'
-    Examine the output files:
-    Copy the output files from the distributed filesystem to the local filesystem and examine them:
-
-    $ bin/hdfs dfs -get output output
-    $ cat output/*
+    <pre><code>$ bin/hdfs dfs -get output output
+$ cat output/*</code></pre>
     or
 
     View the output files on the distributed filesystem:
 
-    $ bin/hdfs dfs -cat output/*
-    When you're done, stop the daemons with:
-    $ sbin/stop-yarn.sh
-    $ sbin/stop-dfs.sh
+    <pre><code>$ bin/hdfs dfs -cat output/*</code></pre>
+    <p><strong>3) Stop YARN and HDFS</strong>
+    <p>When you're done, stop the daemons with:</p>
+    <pre><code>$ sbin/stop-yarn.sh
+$ sbin/stop-dfs.sh</code></pre>
     </section>
   </article>
-  // <script src="/javascript/prism-bash.js"></script>
+  <script src="/javascript/prism-bash.js"></script>
 </body>
 
 </html>
