@@ -130,7 +130,7 @@ th,td {
 	header img {
 		display: block;
 		position: absolute;
-		border-radius: 40px;
+		border-radius: 10px;
 		left: 15%;
 		top: 30px;
 		width: 80px;
