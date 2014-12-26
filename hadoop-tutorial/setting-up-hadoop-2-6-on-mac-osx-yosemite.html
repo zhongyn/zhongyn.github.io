@@ -187,6 +187,7 @@ $ bin/hdfs dfs -mkdir /user/{username} #make sure you add correct username here<
     <pre><code>$ bin/hdfs dfs -put etc/hadoop input</code></pre>
     <p>Run some of the examples provided:</p>
     <pre><code>$ bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.6.0.jar grep input output 'dfs[a-z.]+'</code></pre>
+    <p>This example will count the words starting with "dfs" in the input.</p> 
     <p>Examine the output files:</p>
     <p>Copy the output files from the distributed filesystem to the local filesystem and examine them:<p>
 
