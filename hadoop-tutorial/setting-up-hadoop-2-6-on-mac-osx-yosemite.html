@@ -193,11 +193,20 @@ $ bin/hdfs dfs -mkdir /user/{username} #make sure you add correct username here<
 
     <pre><code>$ bin/hdfs dfs -get output output
 $ cat output/*</code></pre>
-    or
-
-    View the output files on the distributed filesystem:
-
+    <p>or View the output files on the distributed filesystem:</p>
     <pre><code>$ bin/hdfs dfs -cat output/*</code></pre>
+    <p>You can see the result like:</p>
+    <pre><code>4 dfs.class
+4 dfs.audit.logger
+3 dfs.server.namenode.
+2 dfs.period
+2 dfs.audit.log.maxfilesize
+2 dfs.audit.log.maxbackupindex
+1 dfsmetrics.log
+1 dfsadmin
+1 dfs.servers
+1 dfs.replication
+1 dfs.file</code></pre>
     <p><strong>3) Stop YARN and HDFS</strong>
     <p>When you're done, stop the daemons with:</p>
     <pre><code>$ sbin/stop-yarn.sh
