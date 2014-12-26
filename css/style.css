@@ -152,7 +152,7 @@ th,td {
 	header img {
 		position: static;
 		display: block;
-		border-radius: 10px;
+		border-radius: 20px;
 		margin: 0 auto 1em;
 		width: 70%;
 	}
