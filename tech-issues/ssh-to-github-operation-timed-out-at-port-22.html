@@ -76,7 +76,6 @@
 <p><img src="/images/ssh-github-error.png" alt="ssh: connect to host github.com port 22: Operation timed out" style="display:block;width:100%;border-radius:0;"></p>
 <p>It seemed SSH was not working. So I used https clone URL instead and it did work.</p>
 <p>But It is annoying that when you <strong>git fetch, git pull, or git push</strong> to the remote repository using HTTPS, you'll be asked for your GitHub username and password. Even though it is possible to use <a href="https://help.github.com/articles/caching-your-github-password-in-git/" target="_blank">credential helper</a> for remembering username and password under https, I still want to figure out what was going wrong here. By trying many possible solutions, I fixed the bug by setting the firewall security after reading <a href="http://codeclimber.net.nz/archive/2012/04/04/Using-github-behind-a-firewall.aspx" target="_blank">this article</a>. My modem firewall was set to high security by accident and port 22 was blocked. It felt so good that I could use SSH again.</p>
-	</article>
 	 <div id="disqus_thread"></div>
     <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
@@ -91,6 +90,7 @@
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     
+	</article>
 </body>
 
 </html>
