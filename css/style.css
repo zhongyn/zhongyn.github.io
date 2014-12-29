@@ -53,9 +53,8 @@ article > p:nth-of-type(1):first-letter {
 
 article img {
 	max-width: 100%;
-	box-shadow: 0 0 3px #cccccc;
+	box-shadow: 0 0 30px #cccccc;
 	border-radius: 20px;
-	margin-bottom: 1em;
 }
 
 a {
@@ -134,11 +133,6 @@ th,td {
 		left: 15%;
 		top: 30px;
 		width: 80px;
-	}
-	article img {
-		float: right;
-		width: 300px;
-		margin-left: 1em;
 	}
 }
 
