@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Big data, web developer - Yaonan Zhong</title>
-	<meta name="keywords" content="yaonan, zhong, blog, big data">
-	<meta name="description" content="Personal blog for sharing big data and web technology">
+	<title>SSH to Github - operation timed out at port 22</title>
+	<meta name="description" content="ssh: connect to host github.com port 22: Operation timed out">
 	<meta name="author" content="Yaonan Zhong">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
@@ -71,16 +70,27 @@
 		</nav>	
 	</header>
 	<article>	
-		<h1><a href="/tech-issues/ssh-to-github-operation-timed-out-at-port-22.html">SSH to Github - operation timed out at port 22</a></h1>
-		<h2>Dec 28, 2014</h2>
-		<hr>
-		<h1><a href="/hadoop-tutorial/setting-up-hadoop-2-6-on-mac-osx-yosemite.html">Setting up Hadoop 2.6 on Mac OS X Yosemite</a></h1>
-		<h2>Dec 22, 2014</h2>
-		<hr>
-		<h1><a href="/hadoop-tutorial/hadoop-tutorial-1.html">Hadoop Tutorial 1</a></h1>
-		<h2>Dec 21, 2014</h2>
-		<hr>
+		<h1>SSH to Github - operation timed out at port 22</h1>
+<p>Recently I got an error when tried to cloning a repository from Github server:</p>
+<p><strong>"ssh: connect to host github.com port 22: Operation timed out".</strong></p>
+<p><img src="/images/ssh-github-error.png" alt="ssh: connect to host github.com port 22: Operation timed out" style="display:block;width:100%;border-radius:0;"></p>
+<p>It seemed SSH was not working. So I used https clone URL instead and it did work.</p>
+<p>But It is annoying that when you <strong>git fetch, git pull, or git push</strong> to the remote repository using HTTPS, you'll be asked for your GitHub username and password. Even though it is possible to use <a href="https://help.github.com/articles/caching-your-github-password-in-git/" target="_blank">credential helper</a> for remembering username and password under https, I still want to figure out what was going wrong here. By trying many possible solutions, I fixed the bug by setting the firewall security after reading <a href="http://codeclimber.net.nz/archive/2012/04/04/Using-github-behind-a-firewall.aspx" target="_blank">this article</a>. My modem firewall was set to high security by accident and port 22 was blocked. It felt so good that I could use SSH again.</p>
 	</article>
+	 <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'sshgithuberror'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
 </body>
 
 </html>
