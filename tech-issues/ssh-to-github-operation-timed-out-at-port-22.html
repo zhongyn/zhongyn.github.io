@@ -54,20 +54,20 @@
 			</a>
 
 
-			<a href="https://www.linkedin.com/in/yaonanzhong" target="_blank">
-				<span class="fa-stack">
-					<i class="fa fa-square-o fa-stack-2x fa-fw"></i>
-					<i class="fa fa-linkedin fa-stack-1x fa-fw"></i>
-				</span>
-				<span class="nav-item">Linkedin</span>
-			</a>
-			<a href="https://www.github.com/zhongyn" target="_blank">
-				<span class="fa-stack">
-					<i class="fa fa-square-o fa-stack-2x fa-fw"></i>
-					<i class="fa fa-github-alt fa-stack-1x fa-fw"></i>
-				</span>
-				<span class="nav-item">Github</span>
-			</a>
+      <a href="https://www.github.com/zhongyn" target="_blank">
+        <span class="fa-stack">
+          <i class="fa fa-square-o fa-stack-2x fa-fw"></i>
+          <i class="fa fa-github-alt fa-stack-1x fa-fw"></i>
+        </span>
+        <span class="nav-item">Github</span>
+      </a>
+      <a href="https://www.linkedin.com/in/yaonanzhong" target="_blank">
+        <span class="fa-stack">
+          <i class="fa fa-square-o fa-stack-2x fa-fw"></i>
+          <i class="fa fa-linkedin fa-stack-1x fa-fw"></i>
+        </span>
+        <span class="nav-item">Linkedin</span>
+      </a>
 		</nav>	
 	</header>
 	<article class="language-bash">	
@@ -82,7 +82,7 @@ fatal: Could not read from remote repository.
 Please make sure you have the correct access rights
 and the repository exists.</code></pre>
 <p>It seemed SSH was not working. So I used https clone URL instead and it did work.</p>
-<p>But It is annoying that I had to enter GitHub username and password every time I used <strong>git fetch</strong>, <strong>git pull</strong>, or <strong>git push</strong>. Even though it is possible to use <a href="https://help.github.com/articles/caching-your-github-password-in-git/" target="_blank">credential helper</a> for remembering username and password under https, I still want to figure out what was wrong here. By trying many possible solutions, I fixed the bug by setting the firewall security after reading <a href="http://codeclimber.net.nz/archive/2012/04/04/Using-github-behind-a-firewall.aspx" target="_blank">this article</a>. My modem firewall was set to high security by accident and port 22 was blocked. It felt so good that I could use SSH again.</p>
+<p>But It is annoying that I had to enter GitHub username and password every time I used <strong>git fetch</strong>, <strong>git pull</strong>, or <strong>git push</strong>. Even though it is possible to use <a href="https://help.github.com/articles/caching-yourgit-password-in-git/" target="_blank">credential helper</a> for remembering username and password under https, I still want to figure out what was wrong here. By trying many possible solutions, I fixed the bug by setting the firewall security after reading <a href="http://codeclimber.net.nz/archive/2012/04/04/Usinggit-behind-a-firewall.aspx" target="_blank">this article</a>. My modem firewall was set to high security by accident and port 22 was blocked. It felt so good that I could use SSH again.</p>
 	 <div id="disqus_thread"></div>
     <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
