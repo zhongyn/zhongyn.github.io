@@ -123,7 +123,7 @@ picture img{
 }
 
 picture p {
-	font-size: 1.3em;
+	font-size: 1em;
 	text-align: center;
 	margin-top: 0;
 	margin-bottom: 1.5em;
@@ -144,6 +144,9 @@ picture p {
 		left: 15%;
 		top: 30px;
 		width: 80px;
+	}
+	picture p {
+		font-size: 1.2em;
 	}
 }
 
@@ -173,4 +176,8 @@ picture p {
 		margin-left: 300px;
 		padding: 2em 3em 4em;
 	}
+		picture p {
+		font-size: 1.3em;
+	}
+
 }
