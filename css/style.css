@@ -148,6 +148,9 @@ picture p {
 	picture p {
 		font-size: 1.2em;
 	}
+	article {
+		padding-top: 1.5em;
+	}
 }
 
 @media screen and (min-width: 1024px) {
