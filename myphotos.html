@@ -73,8 +73,10 @@
 	</header>
 	<article>	
 		<picture>
-			<source scrset="/images/nature/crater-lake-large.jpg" media="(min-width: 1024px)">
-			<source scrset="/images/nature/crater-lake-medium.jpg" media="(min-width: 640px)">
+			<!--[if IE 9]><video style="display: none;"><![endif]-->
+			<source srcset="/images/nature/crater-lake-large.jpg" media="(min-width: 1024px)">
+			<source srcset="/images/nature/crater-lake-medium.jpg" media="(min-width: 640px)">
+			<!--[if IE 9]></video><![endif]-->
 			<img srcset="/images/nature/crater-lake-small.jpg" alt="crater lake in Oregon">
 			<p>Crater Lake in Oregon. October 22, 2014.</p>
 		</picture>
