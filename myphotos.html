@@ -12,6 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
 	<link href='http://fonts.googleapis.com/css?family=Roberto' rel='stylesheet'>
 	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<script src="javascript/picturefill.min.js"></script>
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<script>
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -71,26 +72,13 @@
 		</nav>	
 	</header>
 	<article>	
-		<figure>
-			<img src="/images/nature/marys-peak.jpg" alt="mary's peak in Oregon">
-			<figcaption>Mary's Peak in Oregon. October 3, 2014.</figcaption>
-		</figure>
-		<figure>
-			<img src="/images/nature/crater-lake.jpg" alt="crater lake in Oregon">
-			<figcaption>Crater Lake in Oregon. October 22, 2014.</figcaption>
-		</figure>
-		<figure>
-			<img src="/images/nature/cannon-beach.jpg" alt="cannon beach in Oregon">
-			<figcaption>Cannon Beach in Oregon. September 1, 2014.</figcaption>
-		</figure>
-		<figure>
-			<img src="/images/nature/corvallis.jpg" alt="fall in corvallis">
-			<figcaption>Fall in Corvallis, Oregon. November 11, 2014.</figcaption>
-		</figure>
-		<figure>
-			<img src="/images/nature/red-cloud.jpg" alt="red cloud in corvallis">
-			<figcaption>Sunset in Corvallis, Oregon. July 12, 2014.</figcaption>
-		</figure>
+		<picture>
+			<source scrset="images/nature/crater-lake-large.jpg" media="(min-width: 1024px)">
+				<source scrset="images/nature/crater-lake-medium.jpg" media="(min-width: 640px)">
+			<img src="/images/nature/crater-lake-small.jpg" alt="crater lake in Oregon">
+			<p>Crater Lake in Oregon. October 22, 2014.</p>
+		</picture>
+
 		<div><strong>Note: please leave a comment for using above images. Thank you!</strong></div>
 
 			<div id="disqus_thread"></div>
