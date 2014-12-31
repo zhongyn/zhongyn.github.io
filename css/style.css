@@ -2,7 +2,7 @@
 
 body {
 	color: #444;
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	font-size: 100%;
 }
 
@@ -19,8 +19,8 @@ header img {
 }
 
 header h1 {
-	font-size: 170%;
-	padding-bottom: 0.1em;
+	font-size: 1.8em;
+	margin-bottom: 0.3em;
 }
 
 header h1 a{
@@ -175,9 +175,6 @@ picture p {
 	article {
 		margin-left: 300px;
 		padding: 2em 3em 4em;
-	}
-		picture p {
-		font-size: 1.3em;
 	}
 
 }
