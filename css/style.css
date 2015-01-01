@@ -77,11 +77,12 @@ h2 {
 	margin: 1em 0 0.5em;
 }
 
-h1+h2, hr{
-	color: #908B8B;
+#blog-list h1 {
+	margin-bottom: 0.2em;
 }
 
-h1+h2 {
+#blog-list h2 {
+	color: #908B8B;
 	margin-top: 0;
 }
 
