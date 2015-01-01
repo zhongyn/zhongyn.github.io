@@ -38,6 +38,17 @@ nav a {
 	padding: 0 0.5%;
 }
 
+aside {
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	text-align: right;
+}
+
+aside a {
+		color: #908B8B;
+}
+
 article {
 	padding: 1em 1em 3em;
 	background: url("/images/background.png");
