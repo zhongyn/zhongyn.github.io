@@ -35,18 +35,11 @@ nav a {
 	color: #908B8B;
 	font-size: 1.2em;
 	font-weight: 500;
-	padding: 0 0.5%;
+	padding: 0 0.5%;	
 }
 
-aside {
-	position: absolute;
-	bottom: 10px;
-	right: 10px;
-	text-align: right;
-}
-
-aside a {
-		color: #908B8B;
+#home .home, #photos .photos, #about .about {
+	color: orange;
 }
 
 article {
@@ -189,11 +182,21 @@ picture p {
 	.nav-item {
 		display: inline;
 	}
-	nav a {
-		display: block;
+
+	nav {
 		margin-left: 25%;
-		text-align: left;
+		text-align: left;		
 	}
+
+	#local-nav a {
+		display: block;
+	}
+
+	#social-network {
+		display: block;
+		margin-top: 1em;
+	}
+
 	article {
 		margin-left: 300px;
 		padding: 2em 3em 4em;
