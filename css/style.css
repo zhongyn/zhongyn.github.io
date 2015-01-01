@@ -129,6 +129,13 @@ picture p {
 	margin-bottom: 1.5em;
 
 }
+
+#contact {
+	color: #5284B9;
+	list-style-type: none;
+	margin-left: 0;
+}
+
 @media screen and (min-width: 640px) {
 	body {
 		background:url("/images/footer_lodyas.png") fixed;
