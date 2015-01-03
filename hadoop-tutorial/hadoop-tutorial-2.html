@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Hadoop Tutorial 2 - Dive into Hadoop distributed file system</title>
+	<meta name="keywords" content="hadoop, tutorial">
+	<meta name="description" content="working knowledge of Hadoop distributed file system, hadoop tutorial for beginner">
+	<meta name="author" content="Yaonan Zhong">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<link href='http://fonts.googleapis.com/css?family=Roboto:700,400' rel='stylesheet'>
+	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	  <link rel="stylesheet" type="text/css" href="/css/prism-bash.css">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-57909375-1', 'auto');
+	ga('send', 'pageview');
+
+	</script>
+
+</head>
+
+<body>
+	<header>
+		<img src="/images/zhongyaonan.jpg" alt="Yaonan Zhong">
+		<h1><a href="/">Yaonan Zhong</a></h1>
+		<nav >
+			<span id="local-nav">
+				<a class="home" href="/">
+					<span class="fa-stack">
+						<i class="fa fa-square-o fa-stack-2x fa-fw"></i>
+						<i class="fa fa-home fa-stack-1x fa-fw"></i>
+					</span>
+					<span class="nav-item">Home</span>
+				</a>
+
+				<a class="photos" href="/myphotos.html">
+					<span class="fa-stack">
+						<i class="fa fa-square-o fa-stack-2x fa-fw"></i>
+						<i class="fa fa-tree fa-stack-1x fa-fw"></i>
+					</span>
+					<span class="nav-item">Photos</span>
+				</a>
+				<a class="about" href="/about.html">
+					<span class="fa-stack">
+						<i class="fa fa-square-o fa-stack-2x fa-fw"></i>
+						<i class="fa fa-user fa-stack-1x fa-fw"></i>
+					</span>
+					<span class="nav-item">About</span>
+				</a>
+			</span>
+
+			<span id="social-network">
+				<a href="https://www.github.com/zhongyn">
+					<span class="fa-stack">
+						<i class="fa fa-circle-thin fa-stack-2x fa-fw"></i>
+						<i class="fa fa-github-alt fa-stack-1x fa-fw"></i>
+					</span>
+				</a>
+				<a href="https://www.linkedin.com/in/yaonanzhong">
+					<span class="fa-stack">
+						<i class="fa fa-circle-thin fa-stack-2x fa-fw"></i>
+						<i class="fa fa-linkedin fa-stack-1x fa-fw"></i>
+					</span>
+				</a>
+				<a href="mailto:zhongyaonan@gmail.com">
+					<span class="fa-stack">
+						<i class="fa fa-circle-thin fa-stack-2x fa-fw"></i>
+						<i class="fa fa-envelope fa-stack-1x fa-fw"></i>
+					</span>
+				</a>
+			</span>
+		</nav>	
+	</header>
+
+	<article>	
+		<h1>Hadoop Tutorial 2 - Dive into Hadoop distributed file system</h1>
+		<p>In our <a href="/hadoop-tutorial/hadoop-tutorial-1.html">Hadoop Tutorial 1</a>, we introduce the big picture of Hadoop and HDFS architecure. And in this <a href="/hadoop-tutorial/setting-up-hadoop-2-6-on-mac-osx-yosemite.html">installing guide</a>, we also learn how to set up a single node Hadoop on our computer. But we don't know how exactly HDFS works and how to run it by ourself.</p>
+		<p>In this article, I will introduce the working knowledge of HDFS:</p>
+		<ul>
+			<li>Configuration of HDFS</li>
+			<li>Common operations on HDFS using shell-like commands</li>
+			<li>Useful features of HDFS</li>
+		</ul>
+		<h2>1. Configuring HDFS</h2>
+		<section class="language-apacheconf">
+		<p>Hadoop configuration is driven by two types of important configuration files for the important components:<p>
+			<table>
+				<tr>
+					<th>Read-only default</th>
+					<th>Site-specific</th>
+				</tr>
+				<tr>
+					<td>core-default.xml</td>
+					<td>core-site.xml</td>
+				</tr>
+				<tr>
+					<td>hdfs-default.xml</td>
+					<td>hdfs-site.xml</td>
+				</tr>
+				<tr>
+					<td>mapred-default.xml</td>
+					<td>mapred-site.xml</td>
+				</tr>
+				<tr>
+					<td>yarn-default.xml</td>
+					<td>yarn-site.xml</td>
+				</tr>
+				<tr>
+					<td>httpfs-default.xml</td>
+					<td>httpfs-site.xml</td>
+				</tr>
+			</table>
+			<p>User can override the default configurations by setting new values in site-specific XML files under the directory <b>etc/hadoop</b>. The <b>hdfs-fault.xml</b> can be found <a href="http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/hdfs-default.xml">here</a>. Here we list some common settings of HDFS.</p>
+
+			<p>1) Configuration for NameNode:</p>
+    <pre><code>&lt;property&gt;
+    &lt;name&gt;dfs.namenode.name.dir&lt;/name&gt;
+    &lt;value&gt;file://${hadoop.tmp.dir}/dfs/name&lt;/value&gt;
+    &lt;description&gt;Determines where on the local filesystem the DFS name node
+      should store the name table(fsimage).  If this is a comma-delimited list
+	  of directories then the name table is replicated in all of the
+ 	  directories, for redundancy. &lt;/description&gt;
+&lt;/property&gt;</code></pre>
+
+			<p>2) Configuration for DataNode:</p>
+    <pre><code>&lt;property&gt;
+    &lt;name&gt;dfs..datanode.data.dir&lt;/name&gt;
+    &lt;value&gt;file://${hadoop.tmp.dir}/dfs/data&lt;/value&gt;
+    &lt;description&gt;Determines where on the local filesystem an DFS data node
+	  should store its blocks.  If this is a comma-delimited
+	  list of directories, then data will be stored in all named
+	  directories, typically on different devices.
+	  Directories that do not exist are ignored. &lt;/description&gt;
+&lt;/property&gt;</code></pre>
+
+			<p>3) Configuration for replication factor:</p>
+    <pre><code>&lt;property&gt;
+    &lt;name&gt;dfs.replication&lt;/name&gt;
+    &lt;value&gt;3&lt;/value&gt;
+    &lt;description&gt;Default block replication. 
+	  The actual number of replications can be specified when the file is created.
+	  The default is used if replication is not specified in create time. &lt;/description&gt;
+&lt;/property&gt;</code></pre>
+</section>
+
+			<h2>2. Common operations on HDFS</h2>
+			<p>After reading Module 1, we know the two most important components in Hadoop are:</p>
+			<ul>
+				<li>Hadoop distributed file system (HDFS) for storing data</li>
+				<li>MapReduce framework for processing data</li>
+			</ul>
+			<p>This part will give you a complete view and better understanding of how HDFS exactly works. First, please read the <i>Distributed File System Basics</i> in Module 2. Yes, only the basics part. Then read the <i>HDFS Architecture</i> in Hadoop project site. These two are very close and extremely useful.</p>
+
+			<table>
+				<tr>
+					<td>Yahoo! Hadoop Tutorial Module 2</td>
+					<td><a href="https://developer.yahoo.com/hadoop/tutorial/module2.html" target="_blank">Link</a></td>
+				</tr>
+				<tr>
+					<td>HDFS Architecture</td>
+					<td><a href="http://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html" target="_blank">Link</a></td>
+				</tr>
+			</table>
+			<h2>3. Useful features of HDFS</h2>
+			<p>Now we can do something fun on our PCs by setting up Hadoop. For Linux and Mac users, the Hadoop project guide is very helpful. Follow the instructions step by step and you will make it. At this point, we just want to try a single node cluster. Windows user can use the Yahoo! guide. For mac users, I know you may use Homebrew to install Hadoop. However, I would recommend manual downloading and installing. Here is my experience on installing Hadoop 2.6 on my macbook with OS X Yosemite. </p>
+
+			<table>
+				<tr>
+					<td>Hadoop installation guide for Linux/Mac</td>
+					<td><a href="http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/SingleCluster.html" target="_blank">Link</a></td>
+				</tr>
+				<tr>
+					<td>Windows installation guide</td>
+					<td><a href="https://developer.yahoo.com/hadoop/tutorial/module3.html" target="_blank">Link</a></td>
+				</tr>
+				<tr>
+					<td>Installing Hadoop on my Mac OS X Yosemite</td>
+					<td><a href="/hadoop-tutorial/setting-up-hadoop-2-6-on-mac-osx-yosemite.html" target="_blank">Link</a></td>
+				</tr>
+			</table>
+			<p><a href="http://getblueshift.com/blog/setting-up-hadoop-2-4-and-pig-0-12-on-osx-locally/" target="_blank">A recommended latest brief installation using Homebrew</a> base on the offical guide. I successfully tried it on my Mac OS X Yosemite. FYI, this guide is in the second page of Google search results. Those top ones are all outdated or messy as far as I know.</p>
+			<p><b>Congratulations!</b> You have finished the tutorial 1. I will post the following tutorials soon!</p>
+		</article>
+		  <script src="/javascript/prism.js"></script>
+
+	</body>
+
+	</html>

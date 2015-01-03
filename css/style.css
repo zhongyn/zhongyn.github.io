@@ -123,6 +123,10 @@ th,td {
 	padding: 5px 10px;
 }
 
+th {
+	background-color: #686A6C;
+	color: white;
+}
 picture img{
 	margin: 0.5em 0 0;
 }
