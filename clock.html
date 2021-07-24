@@ -289,7 +289,7 @@ select:-webkit-autofill {
           font-size: 6rem;
         }
     </style><style class="darkreader darkreader--sync" media="screen"></style>
-<meta name="darkreader" content="8f17c9ffba0ca639f34440354daa45e0"><style class="darkreader darkreader--override" media="screen">.vimvixen-hint {
+<meta name="darkreader" content="29b2d8d968e57427531be4480379edd7"><style class="darkreader darkreader--override" media="screen">.vimvixen-hint {
     background-color: #7b5300 !important;
     border-color: #d8b013 !important;
     color: #f3e8c8 !important;
@@ -307,7 +307,7 @@ a[href="https://coinmarketcap.com/"] > svg[width="94"][height="16"] > path {
 <body>
     <div class="page">
       <div class="time_container">
-          <div class="time" id="time">2:53</div>
+          <div class="time" id="time">3:04</div>
       </div>
 
       <div class="date_container">
@@ -319,7 +319,10 @@ a[href="https://coinmarketcap.com/"] > svg[width="94"][height="16"] > path {
 
     <script>
       function update() {
-        var date = new Date()        
+        var date = new Date()
+        var utc8DiffMinutes = date.getTimezoneOffset() + 480
+        date.setMinutes(date.getMinutes() + utc8DiffMinutes)
+
         var timeString = date.getHours() + ':' + ('0' + date.getMinutes()).slice(-2)
         var dateString = (date.getMonth() + 1) + '月' + date.getDate() + '日'
         var weekList = ['日', '一', '二', '三', '四', '五', '六']
