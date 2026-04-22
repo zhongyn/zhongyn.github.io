@@ -10,8 +10,8 @@
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
-	<link href='http://fonts.googleapis.com/css?family=Roboto:700,400' rel='stylesheet'>
-	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:700,400' rel='stylesheet'>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 	  <link rel="stylesheet" type="text/css" href="/css/prism-bash.css">
 
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -84,7 +84,7 @@
 	<article>	
 		<h1>Hadoop Tutorial 2 - Dive into Hadoop distributed file system</h1>
 		<p>In our <a href="/hadoop-tutorial/hadoop-tutorial-1.html">Hadoop Tutorial 1</a>, we introduce the big picture of Hadoop and HDFS architecure. And in this <a href="/hadoop-tutorial/setting-up-hadoop-2-6-on-mac-osx-yosemite.html">installing guide</a>, we also learn how to set up a single node Hadoop on our computer. But we don't know how exactly HDFS works and how to run it by ourself.</p>
-		<p>HDFS is the primary distributed storage used by Hadoop applications. A HDFS cluster primarily consists of a NameNode that manages the file system metadata and DataNodes that store the actual data. The <a href="http://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html" target="_blank">HDFS Architecture Guide</a> describes HDFS in detail. The <a href="http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html">user guide</a> primarily deals with the interaction of users and administrators with HDFS clusters. The HDFS architecture diagram depicts basic interactions among NameNode, the DataNodes, and the clients. Clients contact NameNode for file metadata or file modifications and perform actual file I/O directly with the DataNodes.</p>
+		<p>HDFS is the primary distributed storage used by Hadoop applications. A HDFS cluster primarily consists of a NameNode that manages the file system metadata and DataNodes that store the actual data. The <a href="https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html" target="_blank">HDFS Architecture Guide</a> describes HDFS in detail. The <a href="https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html">user guide</a> primarily deals with the interaction of users and administrators with HDFS clusters. The HDFS architecture diagram depicts basic interactions among NameNode, the DataNodes, and the clients. Clients contact NameNode for file metadata or file modifications and perform actual file I/O directly with the DataNodes.</p>
 		<p>In this article, I will introduce the working knowledge of HDFS:</p>
 		<ul>
 			<li>Configuration of HDFS</li>
@@ -120,7 +120,7 @@
 					<td>httpfs-site.xml</td>
 				</tr>
 			</table>
-			<p>User can override the default configurations by setting new values in site-specific XML files under the directory <b>etc/hadoop</b>. The <b>hdfs-fault.xml</b> can be found <a href="http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/hdfs-default.xml">here</a>. Here we list some common settings of HDFS.</p>
+			<p>User can override the default configurations by setting new values in site-specific XML files under the directory <b>etc/hadoop</b>. The <b>hdfs-fault.xml</b> can be found <a href="https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/hdfs-default.xml">here</a>. Here we list some common settings of HDFS.</p>
 
 			<p>1) Configuration for NameNode:</p>
     <pre><code>&lt;property&gt;
@@ -155,8 +155,8 @@
 
 			<h2>2. Common operations on HDFS</h2>
 			<section>
-<p>There are two types of HDFS commands: <b>User</b> commands and <b>Administration</b> commands. The <a href="http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html">HDFS Command Guide</a> describes most common useful commands for users and administrators of a hadoop cluster. All HDFS commands are invoked by the <code>bin/hdfs</code> script. Running the <code>hdfs</code> script without any arguments prints the description for all commands.</p>
-<p>One of HDFS command modules is <b>dfs</b>, which provides basic file manipulations, such as loading and retrieving files, changing file permissions. The command <code>bin/hdfs dfs -help</code> lists the commands supported by Hadoop shell. Furthermore, the command <code>bin/hdfs dfs -help command-name</code> displays more detailed help for a command. The various COMMAND_OPTIONS can be found at <a href="http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html">File System Shell Guide</a>.</p>
+<p>There are two types of HDFS commands: <b>User</b> commands and <b>Administration</b> commands. The <a href="https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html">HDFS Command Guide</a> describes most common useful commands for users and administrators of a hadoop cluster. All HDFS commands are invoked by the <code>bin/hdfs</code> script. Running the <code>hdfs</code> script without any arguments prints the description for all commands.</p>
+<p>One of HDFS command modules is <b>dfs</b>, which provides basic file manipulations, such as loading and retrieving files, changing file permissions. The command <code>bin/hdfs dfs -help</code> lists the commands supported by Hadoop shell. Furthermore, the command <code>bin/hdfs dfs -help command-name</code> displays more detailed help for a command. The various COMMAND_OPTIONS can be found at <a href="https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html">File System Shell Guide</a>.</p>
 <p>Some examples:</p>
 <table>
 <tr>
@@ -177,7 +177,7 @@
 
 			<h2>3. Useful features of HDFS</h2>
 			<section>
-				<p>The following is a set of useful features in HDFS. More details can be found in the <a href="http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html">HDFS User Guide</a>.</p>
+				<p>The following is a set of useful features in HDFS. More details can be found in the <a href="https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html">HDFS User Guide</a>.</p>
 			<ul>
 <li>File permissions and authentication.</li>
 <li>Rack awareness: to take a node's physical location into account while scheduling tasks and allocating storage.</li>
@@ -203,7 +203,7 @@
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
     </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 		</article>
 		  <script src="/javascript/prism.js"></script>
